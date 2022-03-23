@@ -36,3 +36,183 @@
     transform: rotate(360deg);
   }
 }
+
+/* new style */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+header {
+  margin: 30px 0;
+}
+form {
+  display: flex;
+  flex-direction: row;
+}
+.new {
+  width: 50%;
+}
+input[type="text"] {
+  margin: 10px 0;
+}
+.playlist-name,
+.playlist-desc {
+  width: 100%;
+}
+.playlist-name {
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  font-family: inherit;
+  outline: 0;
+  border: 1px solid #323232;
+  color: #424242;
+  border-radius: 2rem;
+  height: 42px;
+}
+.playlist-name::placeholder,
+.playlist-desc::placeholder {
+  color: #363636;
+  opacity: 0.7;
+  align-self: center;
+  padding: 12px;
+}
+
+.playlist-desc {
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  font-family: inherit;
+  outline: 0;
+  border: 1px solid #323232;
+  color: #424242;
+  border-radius: 2rem;
+  height: 120px;
+}
+
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.submit {
+  background-color: #038b5a;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  float: right;
+  width: 120px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.music {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.music h1 {
+  margin-bottom: 30px;
+}
+
+#info {
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2vh;
+  margin-bottom: 20px;
+  width: 1000px;
+}
+
+.card {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.4px solid #363636;
+  padding: 0px 15px 20px 15px;
+  border-radius: 20px;
+  margin: 0 0px;
+}
+img {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
+  width: 250px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 120px;
+  object-fit: cover;
+}
+.text {
+  margin: 20px 0px;
+  text-align: left;
+  width: 218px;
+  height: 108px;
+}
+
+.song-title {
+  font-weight: 700;
+}
+.artist {
+  font-weight: 400;
+}
+.album {
+  font-weight: 200;
+}
+input[type="submit"] {
+  background-color: #038b5a;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  float: right;
+}
+
+a {
+  text-decoration: none;
+}
+
+.add {
+  margin-top: 10px;
+}
+
+@media (max-width: 800px) {
+  .submit {
+    margin-top: 30px;
+  }
+  form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cards {
+    flex-wrap: wrap;
+  }
+  .card {
+    margin-top: 20px;
+    margin-bottom: 13px;
+  }
+}
