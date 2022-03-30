@@ -1,19 +1,21 @@
 
 
-const Song = (song) => {
-    return (    
+const Song = ({data}) => {
+    const song = data.album;
+    return (
+    
         <>
         <div className='card'>                          
-            <img src= {song.albums.item.album.images[1].url} alt="music"/>
+            <img src= {song.images[1].url} alt="music"/>
                  <div className="text">
                      <div className="song-title">
-                         {song.albums.item.name}
+                         {data.name}
                      </div>
                      <div className="artist">
-                         {song.albums.item.artists[0].name}
+                         {data.artists[0].name}
                      </div>
                      <div className="album">
-                         {song.albums.item.album.name}
+                         {song.name}
                      </div>
                  </div> 
                  <div className="add">

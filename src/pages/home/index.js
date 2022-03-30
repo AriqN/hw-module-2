@@ -2,7 +2,6 @@ import { Component } from "react";
 import Music from '../../components/search';
 // import GIF from "../../component/gif";
 
-const clientId = process.env.CLIENT_ID;
 class Home extends Component {
   state = { accessToken: null };
   
@@ -33,7 +32,7 @@ class Home extends Component {
     return (
       
        <div>
-        <a href= {`https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&redirect_uri=http://localhost:3000/&scope=playlist-modify-private`} >Login</a>
+        <a href= 'https://accounts.spotify.com/authorize?client_id=cb12837dbb574dc791a05c6411dd9453&response_type=token&redirect_uri=http://localhost:3000/&scope=playlist-modify-private' >Login</a>
         </div>
       
     );
