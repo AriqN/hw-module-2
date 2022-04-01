@@ -1,42 +1,52 @@
-import { Component } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Music from '../../components/search';
 // import GIF from "../../component/gif";
 
-class Home extends Component {
-  state = { accessToken: null };
-  
 
-  componentDidMount() {
-    const filterToken = (param) => param
+ const clientId= 'cb12837dbb574dc791a05c6411dd9453';
+
+const Home = ()=>{
+  const [accessToken,setAccessToken] = useState(null);
+  const filterToken = (param) => { 
+    const parsed = param
     .slice(1)
     .split("&")
     .map(v => v.split("="))
     .reduce( (pre, [key, value]) => ({ ...pre, [key]: value }), {} );
-    const { access_token=null } = filterToken(window.location.hash);
-    if (access_token){
-        this.setState({accessToken:access_token})
-    }
+    setAccessToken(parsed);
     
-  };
+  }
+  
+  const handleLogin =()=>{
+    window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000/&scope=playlist-modify-private`);
+    console.log(clientId)
+  }
 
-  render() {
-    const { accessToken=null } = this.state;
-
-
-    if (accessToken)
+    useEffect (()=>{
+      if(window.location.hash)
+      filterToken(window.location.hash)
+    },[]);      
         return (
-            <>
-            <Music accessToken={accessToken}/>      
+            <>{
+              !accessToken &&
+              <div>
+                <button onClick={handleLogin}>
+                  Login
+                </button>
+              </div>
+            }
+            {
+              accessToken &&
+              <Music accessToken={accessToken.access_token}/>   
+            }
+               
             </>
         )
-    return (
-      
-       <div>
-        <a href= 'https://accounts.spotify.com/authorize?client_id=cb12837dbb574dc791a05c6411dd9453&response_type=token&redirect_uri=http://localhost:3000/&scope=playlist-modify-private' >Login</a>
-        </div>
-      
-    );
-  }
+    
 }
+
+
+
+
 
 export default Home;
