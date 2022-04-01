@@ -40,7 +40,7 @@ const Music = ({accessToken}) =>{
       {
         tracks.length>0 &&
         tracks.map((data)=>(
-          <Song key={data.id} data={data}/>
+          <Song key={data.id} data={data} tracks={tracks} setTracks={setTracks}/>
         ))
 
       }

@@ -185,7 +185,7 @@ img {
   font-weight: 200;
   font-size: 0.85rem;
 }
-input[type="submit"] {
+.select-btn {
   background-color: #038b5a;
   color: white;
   padding: 12px 20px;
