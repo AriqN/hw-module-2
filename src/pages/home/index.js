@@ -19,7 +19,6 @@ const Home = ()=>{
   
   const handleLogin =()=>{
     window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000/&scope=playlist-modify-private`);
-    console.log(clientId)
   }
 
     useEffect (()=>{
@@ -30,7 +29,7 @@ const Home = ()=>{
             <>{
               !accessToken &&
               <div>
-                <button onClick={handleLogin}>
+                <button onClick={handleLogin} className="select-btn">
                   Login
                 </button>
               </div>

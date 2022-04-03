@@ -1,18 +1,18 @@
 import React from "react";
-const Song = ({data, tracks, setTracks}) => {
+const Song = ({data, selectedTracks, setSelectedTracks}) => {
     
 
     const handleTracksSelector=()=>{
-        if (tracks.includes(data.uri))
-        setTracks((prev)=>prev.filter((uri)=> uri !== data.uri));
-        else setTracks((prev)=>[...prev,data.uri]);
+        if (selectedTracks.includes(data.uri))
+        setSelectedTracks((prev)=>prev.filter((uri)=> uri !== data.uri));
+        else setSelectedTracks((prev)=>[...prev,data.uri]);
     }
 
     return (
     
         <>
             <div className="cards">
-                <div className='card' key={data.id}>                          
+                <div className='card' >                          
                     <img src= {data.album.images[1].url} alt="music"/>
                         <div className="text">
                             <div className="song-title">
@@ -26,7 +26,7 @@ const Song = ({data, tracks, setTracks}) => {
                             </div>
                         </div> 
                         <button className="add select-btn"  onClick={handleTracksSelector}>
-                            {tracks.includes(data.uri) ? "Desselect" : "Select"}             
+                            {selectedTracks.includes(data.uri) ? "Desselect" : "Select"}             
                         </button>
                 </div>
             </div>    

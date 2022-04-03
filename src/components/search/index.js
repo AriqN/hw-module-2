@@ -1,11 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import data from "../../data";
 import Song from "../song";
-// import albums from "./albums";
 
 const Music = ({accessToken}) =>{
   const [tracks,setTracks] = useState([]);
   const [keyword, setKeyword] = useState(null);
+  const [selectedTracks,setSelectedTracks] = useState([]);
+
+
+
   const handleSearch = async()=>{
     axios.get(`https://api.spotify.com/v1/search?type=track&include_external=audio`,{
       params : {
@@ -34,16 +38,21 @@ const Music = ({accessToken}) =>{
     <>
     <form style={{ marginBottom: "20px" }} onSubmit={handleSubmit}>
         <input onChange={(e) => setKeyword(e.target.value)} type="text" />
-        <button>search</button>
+        <button type="submit">search</button>
       </form>
 
       {
         tracks.length>0 &&
         tracks.map((data)=>(
-          <Song key={data.id} data={data} tracks={tracks} setTracks={setTracks}/>
+          <Song key={data.id} data={data} selectedTracks={selectedTracks} setSelectedTracks={setSelectedTracks}/>
         ))
 
       }
+
+      <div>
+        {console.log(selectedTracks)}
+        
+      </div>
       </>
   )
 
