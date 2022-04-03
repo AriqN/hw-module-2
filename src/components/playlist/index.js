@@ -12,8 +12,6 @@ const Playlist = ({accessToken,selectedTracks})=>{
         desc:'',
     });
     const [list,setlist]=useState([]);
-    const [user,setUser]=useState([]);
-    const [playlistId,setPlaylistId]=useState([]);
 
     const handleFormChange = (e)=>{
         const {name,value} = e.target;
@@ -46,23 +44,6 @@ const Playlist = ({accessToken,selectedTracks})=>{
           )
           .then(res =>res.data.id);
 
-        //   await axios.post(
-        //     `https://api.spotify.com/v1/users/${playlistId}/playlists`,
-        //     {
-        //         params: {
-        //             uris : `${selectedTracks}`,
-        //             position : 0
-        //         }
-        //     },
-        //     {  
-        //       headers: {
-        //         'Authorization': `Bearer ${accessToken}`, 
-        //         'Content-Type': 'application/json'
-        //       },
-        //     }
-        //   )
-        //   .then(res => res.data)
-        //   .then(respone => console.log(respone));
         
           const config = {
             method: 'post',
