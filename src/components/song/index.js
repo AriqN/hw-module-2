@@ -11,7 +11,7 @@ const Song = ({data, selectedTracks, setSelectedTracks}) => {
     return (
     
         <>
-            <div className="cards">
+            
                 <div className='card' >                          
                     <img src= {data.album.images[1].url} alt="music"/>
                         <div className="text">
@@ -29,7 +29,7 @@ const Song = ({data, selectedTracks, setSelectedTracks}) => {
                             {selectedTracks.includes(data.uri) ? "Desselect" : "Select"}             
                         </button>
                 </div>
-            </div>    
+              
                  </>
                  )
     

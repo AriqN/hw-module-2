@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import data from "../../data";
+import Playlist from "../playlist";
 import Song from "../song";
 
 const Music = ({accessToken}) =>{
@@ -40,19 +41,18 @@ const Music = ({accessToken}) =>{
         <input onChange={(e) => setKeyword(e.target.value)} type="text" />
         <button type="submit">search</button>
       </form>
+      <div className="cards">
+        {
+          tracks.length>0 &&
+          tracks.map((data)=>(
+            <Song key={data.id} data={data} selectedTracks={selectedTracks} setSelectedTracks={setSelectedTracks}/>
+          ))
 
-      {
-        tracks.length>0 &&
-        tracks.map((data)=>(
-          <Song key={data.id} data={data} selectedTracks={selectedTracks} setSelectedTracks={setSelectedTracks}/>
-        ))
-
-      }
-
-      <div>
-        {console.log(selectedTracks)}
-        
+        }
       </div>
+      <Playlist accessToken={accessToken} selectedTracks={selectedTracks}/>
+
+      
       </>
   )
 

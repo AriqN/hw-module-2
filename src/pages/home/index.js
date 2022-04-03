@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+
 import Music from '../../components/search';
 // import GIF from "../../component/gif";
 
@@ -18,7 +19,8 @@ const Home = ()=>{
   }
   
   const handleLogin =()=>{
-    window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000/&scope=playlist-modify-private`);
+    const scope = 'playlist-modify-private user-read-private '
+    window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000/&scope=${scope}`);
   }
 
     useEffect (()=>{
@@ -36,7 +38,11 @@ const Home = ()=>{
             }
             {
               accessToken &&
-              <Music accessToken={accessToken.access_token}/>   
+              <>
+              <Music accessToken={accessToken.access_token}/> 
+              
+                
+              </>
             }
                
             </>
