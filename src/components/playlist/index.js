@@ -1,17 +1,19 @@
 import axios from "axios";
 import React from "react";
 import { useState,useEffect } from "react"
-import data from "../../data";
 import Form from "../form";
 import List from "../list";
+import { useSelector } from "react-redux";
 
 
-const Playlist = ({accessToken,selectedTracks})=>{
+const Playlist = ({selectedTracks})=>{
+    const redirectURI=process.env.REACT_APP_URI;
     const [form,setForm]= useState({
         title: '',
         desc:'',
     });
     const [list,setlist]=useState([]);
+    const accessToken = useSelector((state) => state.auth.token.access_token);
 
     const handleFormChange = (e)=>{
         const {name,value} = e.target;
@@ -54,7 +56,7 @@ const Playlist = ({accessToken,selectedTracks})=>{
             }
           };
           
-          const addsong = 
+          
            await axios(config)
           .then(function (response) {
             console.log(response.data);
@@ -62,10 +64,6 @@ const Playlist = ({accessToken,selectedTracks})=>{
           .catch(function (error) {
             console.log(error);
           });
-
-          
-        
-
     }
 
 
@@ -90,7 +88,7 @@ const Playlist = ({accessToken,selectedTracks})=>{
     const serbaGuna =(e)=>{
         e.preventDefault();
        
-        console.log(selectedTracks);
+        console.log();
     }
     
     
@@ -114,7 +112,7 @@ const Playlist = ({accessToken,selectedTracks})=>{
             }
      </div>
         </div>
-       <button onClick={serbaGuna}>test</button>
+       {/* <button onClick={serbaGuna}>test</button> */}
         
         
         </>

@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import data from "../../data";
 import Playlist from "../playlist";
 import Song from "../song";
-
-const Music = ({accessToken}) =>{
+import { useSelector } from "react-redux";
+const Music = () =>{
   const [tracks,setTracks] = useState([]);
   const [keyword, setKeyword] = useState(null);
   const [selectedTracks,setSelectedTracks] = useState([]);
+  const accessToken = useSelector((state) => state.auth.token.access_token);
+
 
 
 

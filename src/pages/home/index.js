@@ -1,20 +1,25 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateAccessToken } from "../../service/redux/action";
 
 import Music from '../../components/search';
 // import GIF from "../../component/gif";
 
 
- const clientId= 'cb12837dbb574dc791a05c6411dd9453';
+ const clientId= process.env.REACT_APP_CLIENT_ID;
+ 
+ 
 
 const Home = ()=>{
-  const [accessToken,setAccessToken] = useState(null);
+  const accessToken = useSelector((state) => state.auth.token);
+  const dispatch = useDispatch();
   const filterToken = (param) => { 
-    const parsed = param
+    const accessToken = param
     .slice(1)
     .split("&")
     .map(v => v.split("="))
     .reduce( (pre, [key, value]) => ({ ...pre, [key]: value }), {} );
-    setAccessToken(parsed);
+    dispatch(updateAccessToken(accessToken));
     
   }
   
@@ -39,7 +44,7 @@ const Home = ()=>{
             {
               accessToken &&
               <>
-              <Music accessToken={accessToken.access_token}/> 
+              <Music/> 
               
                 
               </>

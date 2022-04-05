@@ -1,5 +1,5 @@
 
-const Form = ({data, handleFormChange,handleFormSubmit,handleList})=>{
+const Form = ({data, handleFormChange,handleList})=>{
 
     return(
         <>
