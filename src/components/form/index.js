@@ -3,11 +3,12 @@ const Form = ({data, handleFormChange,handleList})=>{
 
     return(
         <>
-        <form onSubmit={handleList}>
+        <form onSubmit={handleList} className="form-playlist">
+            <div>
             <ul>
                 <li>
                     <label htmlFor="title">Title</label>
-                    <input
+                    <input 
                         id="title"
                         type="text"
                         name="title"
@@ -15,22 +16,27 @@ const Form = ({data, handleFormChange,handleList})=>{
                         onChange={handleFormChange}
                         value={data.title}
                         required
+                        placeholder="Enter Your Playlist Title"
+                        className="input-playlist-title"
                     />
                 </li>
                 <li>
                 <label htmlFor="desc">Description</label>
-                    <input
-                        id="desc"
+                    <textarea id="desc"
                         type="text"
                         name="desc"
                         onChange={handleFormChange}
                         value={data.desc}
                         required
-                    />
+                        placeholder="Enter Your Playlist Description"
+                        className="input-playlist-desc"
+                        ></textarea>
                 </li>
             </ul>
-            <button className="select-btn" type="submit">Create Playlist</button>
-
+            </div>
+            <div>
+                <button className="select-btn" type="submit">Create Playlist</button>
+            </div>
         </form>
         
         </>

@@ -46,6 +46,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  
 }
 
 body {
@@ -53,6 +54,7 @@ body {
   font-size: 1.05rem;
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
+  background-color: #E6E7E9;
 }
 .container {
   max-width: 1200px;
@@ -62,10 +64,21 @@ body {
 header {
   margin: 30px 0;
 }
-form {
+.form-playlist {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  
 }
+
+.form-search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .new {
   width: 50%;
 }
@@ -105,27 +118,8 @@ input[type="text"] {
   height: 120px;
 }
 
-.btn-submit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-}
-.submit {
-  background-color: #038b5a;
-  color: white;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  float: right;
-  width: 120px;
-  text-align: center;
-  font-weight: 700;
-}
 
 .music {
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,9 +129,7 @@ input[type="text"] {
   margin-bottom: 30px;
 }
 
-#info {
-  margin-bottom: 20px;
-}
+
 
 .cards {
   display: flex;
@@ -158,6 +150,8 @@ input[type="text"] {
   border-radius: 20px;
   margin: 20px 0px;
   box-shadow: 5px 20px 20px -15px rgba(0, 0, 0, 0.25);
+  background-color: #BEC5D2;
+  z-index: 0;
 }
 img {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
@@ -196,6 +190,20 @@ img {
   font-weight: 700;
 }
 
+.search-btn {
+  background-color: #038b5a;
+  color: white;
+  padding: 12px 20px;
+  border: 1px solid #424242;
+  border-left: none;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  cursor: pointer;
+  float: right;
+  font-weight: 700;
+  height: 3.32em;
+}
+
 a {
   text-decoration: none;
 }
@@ -204,6 +212,71 @@ a {
   margin-top: 10px;
   
 }
+
+.home-head{
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)),
+    url("../public/invictus-tailoring-sneaker-socks-5OZgVj0YVwQ-unsplash.jpg") fixed center/cover
+      no-repeat;
+  height: 85vh;
+  width: 100%;
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0);
+  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.link{
+  text-decoration: none;
+  color: white;
+}
+
+li{
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+input{
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  font-family: inherit;
+  outline: 0;
+  border: 1px solid #424242;
+  color: black;
+  
+  
+}
+
+textarea{
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  font-family: inherit;
+  outline: 0;
+  border: 1px solid #424242;
+  color: black;
+  border-radius: 2rem;
+  height:6.2em;
+  
+}
+
+.input-playlist-title{
+  width: 700px;
+  height:2.2em;
+  border-radius: 2rem;
+}
+
+.input-search{
+  width: 500px;
+  height:2.5em; 
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+
+
+
 
 @media (max-width: 1000px) {
   .submit {

@@ -38,9 +38,11 @@ const Music = () =>{
 
   return(
     <>
-    <form style={{ marginBottom: "20px" }} onSubmit={handleSubmit}>
-        <input onChange={(e) => setKeyword(e.target.value)} type="text" />
-        <button type="submit">search</button>
+     <div className='container'>
+      <div className="music">
+    <form style={{ marginBottom: "20px" }} onSubmit={handleSubmit} className="form-search">
+        <input onChange={(e) => setKeyword(e.target.value)} type="text" placeholder="Find Your Favorite Song Here!" className="input-search" />
+        <button className="search-btn" type="submit"><i className= "fas fa-search"></i></button>
       </form>
       <div className="cards">
         {
@@ -51,8 +53,10 @@ const Music = () =>{
 
         }
       </div>
-      <Playlist accessToken={accessToken} selectedTracks={selectedTracks}/>
 
+      <Playlist accessToken={accessToken} selectedTracks={selectedTracks}/>
+      </div>
+      </div>
       
       </>
   )
