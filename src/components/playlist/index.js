@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 
 const Playlist = ({selectedTracks})=>{
-    const redirectURI=process.env.REACT_APP_URI;
     const [form,setForm]= useState({
         title: '',
         desc:'',

@@ -22,11 +22,11 @@ const CreatePlaylist = () => {
         filterToken(window.location.hash)
       },[]);   
 
-      const serbaGuna =(e)=>{
-        e.preventDefault();
+    //   const serbaGuna =(e)=>{
+    //     e.preventDefault();
        
-        console.log(accessToken);
-    }
+    //     console.log(accessToken);
+    // }
 
 
     return (
@@ -36,7 +36,7 @@ const CreatePlaylist = () => {
              
               
                 {
-                  accessToken===null ?
+                  !accessToken ?
                   <div className="cards">
                       
                       <div className="cards">
