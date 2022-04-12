@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useCallback } from "react";
 import { useState,useEffect } from "react"
 import Form from "../form";
 import List from "../list";
@@ -12,7 +12,8 @@ const Playlist = ({selectedTracks})=>{
         desc:'',
     });
     const [list,setlist]=useState([]);
-    const accessToken = useSelector((state) => state.auth.token.access_token);
+    const [snapshot,setSnapshot]=useState([]);
+    const accessToken = useSelector((state) => state.auth.token);
 
     const handleFormChange = (e)=>{
         const {name,value} = e.target;
@@ -58,7 +59,7 @@ const Playlist = ({selectedTracks})=>{
           
            await axios(config)
           .then(function (response) {
-            console.log(response.data);
+            setSnapshot(response.data.snapshot_id);
           })
           .catch(function (error) {
             console.log(error);
@@ -67,7 +68,7 @@ const Playlist = ({selectedTracks})=>{
 
 
 
-    const handleGetPlaylist= async()=>{
+    const handleGetPlaylist= useCallback(()=>{
         axios.get(`https://api.spotify.com/v1/me/playlists`,{
             
             headers:{
@@ -78,43 +79,40 @@ const Playlist = ({selectedTracks})=>{
             .then(res => {setlist(res.data.items)}
             );
 
-    }
+    },[snapshot]);
 
     useEffect(()=>{
         handleGetPlaylist()
-    },[])
+    },[handleGetPlaylist])
 
-    // const serbaGuna =(e)=>{
-    //     e.preventDefault();
-       
-    //     console.log(accessToken);
-    // }
     
     
 
     return (
-        <>
-        <h1>
-            Create New Playlist
-        </h1>
-        <Form data={form} handleFormChange={handleFormChange} handleList={handleList}/>
-        <div className="music">
-            <h1>
-                Existing Playlist
-            </h1>
-            <div className="cards">
-            
-            {list.length>0 &&
-            list.map((list)=>(       
-            <List data={list} key={list.id}/>
-            ))  
-            }
-     </div>
+        <div className="grid-playlist">
+            <div>
+                <h1 className="centered">
+                    Create New Playlist
+                </h1>
+                <Form data={form} handleFormChange={handleFormChange} handleList={handleList}/>
+            </div>
+            <div className="music">
+                <h1>
+                    Existing Playlist
+                </h1>
+                <div className="cards">
+                
+                {list.length>0 &&
+                list.map((list)=>(       
+                <List data={list} key={list.id}/>
+                ))  
+                }
+            </div>
         </div>
        {/* <button onClick={serbaGuna}>test</button> */}
         
         
-        </>
+        </div>
 
     )
        

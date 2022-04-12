@@ -7,7 +7,7 @@ const Music = () =>{
   const [tracks,setTracks] = useState([]);
   const [keyword, setKeyword] = useState(null);
   const [selectedTracks,setSelectedTracks] = useState([]);
-  const accessToken = useSelector((state) => state.auth.token.access_token);
+  const accessToken = useSelector((state) => state.auth.token);
 
 
 
@@ -40,19 +40,20 @@ const Music = () =>{
     <>
      <div className='container'>
       <div className="music">
-    <form style={{ marginBottom: "20px" }} onSubmit={handleSubmit} className="form-search">
-        <input onChange={(e) => setKeyword(e.target.value)} type="text" placeholder="Find Your Favorite Song Here!" className="input-search" />
-        <button className="search-btn" type="submit"><i className= "fas fa-search"></i></button>
-      </form>
-      <div className="cards">
-        {
-          tracks.length>0 &&
-          tracks.map((data)=>(
-            <Song key={data.id} data={data} selectedTracks={selectedTracks} setSelectedTracks={setSelectedTracks}/>
-          ))
+        
+              <form style={{ marginBottom: "20px" }} onSubmit={handleSubmit} className="form-search">
+                <input onChange={(e) => setKeyword(e.target.value)} type="text" placeholder="Find Your Favorite Song Here!" className="input-search" />
+                <button className="search-btn" type="submit"><i className= "fas fa-search"></i></button>
+              </form>
+              <div className="cards">
+                {
+                  tracks.length>0 &&
+                  tracks.map((data)=>(
+                    <Song key={data.id} data={data} selectedTracks={selectedTracks} setSelectedTracks={setSelectedTracks}/>
+                  ))
 
-        }
-      </div>
+                }
+              </div>
 
       <Playlist accessToken={accessToken} selectedTracks={selectedTracks}/>
       </div>

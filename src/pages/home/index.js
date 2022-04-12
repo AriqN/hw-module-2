@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+
 // import GIF from "../../component/gif";
 
 
@@ -7,10 +9,7 @@ import { Link } from "react-router-dom";
  
 
 const Home = ()=>{
-  
-  
-  
-  const handleLogin =()=>{
+  const handleLogin = ()=>{
     const scope = 'playlist-modify-private user-read-private '
     window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000/create-playlist&scope=${scope}`);
 
@@ -30,7 +29,7 @@ const Home = ()=>{
                 <div className='container'>
                       <div className="cards">
                         <button onClick={handleLogin} className="select-btn">
-                        <Link to="/create-playlist" className="link"> Login </Link>
+                       Login
                         </button>
                       </div>
                          

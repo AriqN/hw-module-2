@@ -264,7 +264,7 @@ textarea{
 
 .input-playlist-title{
   width: 700px;
-  height:2.2em;
+  height:2.3em;
   border-radius: 2rem;
 }
 
@@ -275,6 +275,16 @@ textarea{
   border-bottom-left-radius: 2rem;
 }
 
+.grid-playlist{
+  display: grid;
+  row-gap: 50px;
+  grid-template-rows: 30% 70%;
+  
+}
+
+.centered{
+  text-align: center;
+}
 
 
 
@@ -289,5 +299,15 @@ textarea{
   .card {
     margin-top: 20px;
     margin-bottom: 13px;
+  }
+  .form-playlist{
+    flex-direction: column;
+    align-items: center;
+  }
+  .create-btn{
+    margin-top:20px;
+  }
+  .music{
+    margin-top: 20px;
   }
 }

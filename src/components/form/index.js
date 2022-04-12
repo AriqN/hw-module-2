@@ -34,7 +34,7 @@ const Form = ({data, handleFormChange,handleList})=>{
                 </li>
             </ul>
             </div>
-            <div>
+            <div className="create-btn">
                 <button className="select-btn" type="submit">Create Playlist</button>
             </div>
         </form>
