@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import {  
     Route
   } from 'react-router-dom';
+import Home from '../../pages/home';
 
 
 function PrivateRoute({ component: Component , ...rest }) {
@@ -12,7 +13,7 @@ function PrivateRoute({ component: Component , ...rest }) {
         {...rest}
         render={(props) => { return accessToken
           ? (<Component {...props}/>)
-          : (<Redirect to={'/'}/>)
+          : (<Home/>)
         }}
       />
     );

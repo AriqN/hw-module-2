@@ -1,4 +1,6 @@
-import { useSelector } from "react-redux";
+import { Button } from "@mui/material";
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 
 // import GIF from "../../component/gif";
@@ -22,15 +24,18 @@ const Home = ()=>{
             
               <div className="music">
                 <div className="home-head">
-                  <h1>
+                <Typography component="div">                
+                  <Box sx={{ letterSpacing: 10, m: 1 }}>Music Made For You.</Box>
+                </Typography>
+                  {/* <h1>
                     Music Made For You
-                  </h1> 
+                  </h1>  */}
                                 
                 <div className='container'>
                       <div className="cards">
-                        <button onClick={handleLogin} className="select-btn">
+                        <Button variant="contained" color="secondary" onClick={handleLogin} >
                        Login
-                        </button>
+                        </Button>
                       </div>
                          
                                                

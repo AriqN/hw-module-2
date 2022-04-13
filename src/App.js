@@ -1,14 +1,13 @@
 import './App.css';
-
 import Home from './pages/home';
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CreatePlaylist from './pages/createPlaylist';
 import PrivateRoute from './service/route/privateRoute';
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { updateAccessToken } from "./service/redux/action";
-
+import { ThemeProvider } from "@mui/material";
+import theme from './service/theme';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +32,7 @@ const getQueryParams= (string) => {
   }, [dispatch]);   
 
   return (
+    <ThemeProvider theme={theme}>
       <Router>
           <Switch>
             {/* <Route path="/create-playlist" exact component={CreatePlaylist}></Route> */}
@@ -40,6 +40,7 @@ const getQueryParams= (string) => {
             <PrivateRoute path="/create-playlist" exact component={CreatePlaylist}/>
           </Switch>
         </Router>
+    </ThemeProvider>    
   
      
   );
