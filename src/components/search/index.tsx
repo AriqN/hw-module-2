@@ -131,7 +131,7 @@ const Music:FC = () =>{
                 }
               </div>
 
-      <Playlist selectedTracks={selectedTracks} accessToken={accessToken}/>
+      <Playlist selectedTracks={selectedTracks}/>
       </div>
       </div>
       
