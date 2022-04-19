@@ -7,15 +7,15 @@ import Box from '@mui/material/Box';
 
 
  const clientId= process.env.REACT_APP_CLIENT_ID;
- 
- 
 
 const Home = ()=>{
   const handleLogin = ()=>{
     const scope = 'playlist-modify-private user-read-private '
-    window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000/create-playlist&scope=${scope}`);
+    window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000/&scope=${scope}`);
 
   }
+
+  
    
 
         return (
@@ -35,7 +35,7 @@ const Home = ()=>{
                       <div className="cards">
                         <Button variant="contained" color="secondary" onClick={handleLogin} >
                        Login
-                        </Button>
+                        </Button>                      
                       </div>
                          
                                                

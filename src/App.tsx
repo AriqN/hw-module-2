@@ -35,7 +35,7 @@ const getQueryParams= (string:string) => {
   return finalObj;
 }
 
-  useEffect (()=>{
+  useEffect ( () =>{
     const { access_token = null } = getQueryParams(window.location.hash) as tokenType;
     if (access_token) dispatch(updateAccessToken(access_token));
   }, [dispatch]);   
