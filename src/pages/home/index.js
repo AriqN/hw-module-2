@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 const Home = ()=>{
   const handleLogin = ()=>{
     const scope = 'playlist-modify-private user-read-private '
-    window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=https://hw-module-3.vercel.app/&scope=${scope}`);
+    window.location.replace(`https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://hw-module-3.vercel.app/&scope=${scope}`);
 
   }
 
