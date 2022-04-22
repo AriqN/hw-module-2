@@ -1,6 +1,25 @@
-# Getting Started with Create React App
+# Final Project Gigih
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![](https://img.shields.io/badge/TYPESCRIPT%20-%233178C6.svg?&style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org) [![](https://img.shields.io/badge/REACT%20-%2356BDDA.svg?&style=flat&logo=react&logoColor=white)](https://reactjs.org)
+
+this is a final project for [Generasi Gigih Program](https://www.anakbangsabisa.org/generasi-gigih/) for Front-End Track using [react](https://reactjs.org)
+
+For this project I tried to make create-playlist website base on spotify API, after you log-in through the website, you can make your own playlist by adding your favorite song, give your playlist a title and a description. You can also see your existing playlist. After the playlist created, it will automaticly update the existing playlist. 
+## Installation
+
+Use the package manager [npm](https://www.npmjs.com) to install this.
+
+```base
+npm install
+```
+
+dont forget to create `.env` based on`.env.example`
+You can also change the value(The curent client_id value on .env.example match with my vercel apps)
+```
+REACT_APP_CLIENT_ID=
+REACT_APP_REDIRECT_URI=
+```
+
 
 ## Available Scripts
 
@@ -16,7 +35,7 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in the interactive watch mode. this app has already using toBeInTheDocument(), and user-event \
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
@@ -39,32 +58,30 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Auth
+  - Login with spotify
+  - Playlist only visible by you (Private)
+- Track
+  - Search tracks by it's album, artist, track, year, upc, tag, isrc, and genre params
+  - Show recent song in dashboard
+  - Select and deselect song to add to your playlist
+  - Create playlist
+    - Validation for title (min.10 character)
+    - Validation for selected song (playlist can only be created if there is a song selected)
+  - Update the Existing Playlist details after creating the playlist  
+- Test
+    - Using toBeInTheDocument(), and user-event to check the UI
+- UI
+    - Using combination of MUI library and CSS
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Please make sure to update tests as appropriate.
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](https://choosealicense.com/licenses/mit/)
