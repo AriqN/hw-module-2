@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
  const clientId= process.env.REACT_APP_CLIENT_ID;
- const redirectUri= "http://hw-module-3.vercel.app/";
+ const redirectUri= process.env.REACT_APP_REDIRECT_URI;
 
 const Home = ()=>{
   const handleLogin = ()=>{
