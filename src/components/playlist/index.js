@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { useState,useEffect } from "react"
 import Form from "../form";
-import List from "../list";
+import List from "../listOfPlaylist";
 import { useSelector } from "react-redux";
+import Grid from '@mui/material/Grid';
+
 
 
 const Playlist = ({selectedTracks})=>{
@@ -78,38 +80,35 @@ const Playlist = ({selectedTracks})=>{
             })
             .then(res => {setlist(res.data.items)}
             );
-
+            // eslint-disable-next-line
     },[snapshot]);
 
     useEffect(()=>{
         handleGetPlaylist()
     },[handleGetPlaylist])
-
-    
-    
-
     return (
         <div className="grid-playlist">
             <div>
                 <h1 className="centered">
                     Create New Playlist
                 </h1>
-                <Form data={form} handleFormChange={handleFormChange} handleList={handleList}/>
+                <Form data={form} handleFormChange={handleFormChange} handleList={handleList} selectedTracks={selectedTracks} />
             </div>
             <div className="music">
                 <h1>
                     Existing Playlist
                 </h1>
-                <div className="cards">
-                
+                <Grid container spacing={2} justifyContent="space-around" >
                 {list.length>0 &&
                 list.map((list)=>(       
                 <List data={list} key={list.id}/>
                 ))  
                 }
-            </div>
+                
+                </Grid> 
+            
         </div>
-       {/* <button onClick={serbaGuna}>test</button> */}
+       
         
         
         </div>

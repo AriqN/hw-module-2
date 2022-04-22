@@ -1,20 +1,24 @@
 import { createTheme } from "@mui/material";
-import { green, purple } from "@mui/material/colors";
+
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: purple[500]
+      main: "#ffffff"
     },
     secondary: {
-      main: green[700]
+      main: "#038b5a"
     }
   },
   typography: {
     fontFamily: [
       "Poppins"
     ].join(','),
+    button: {
+      textTransform: "none",
+    }
   },
+  
 });
 
 export default theme;

@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 import {  
     Route
   } from 'react-router-dom';
-import Home from '../../pages/home';
 
 
 function GuestPrivateRoute({ children , ...rest }) {

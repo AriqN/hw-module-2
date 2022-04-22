@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './pages/home';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch} from 'react-router-dom';
 import CreatePlaylist from './pages/createPlaylist';
 import UserPrivateRoute from './service/route/userPrivateRoute';
 import GuestPrivateRoute from './service/route/guestPrivateRoute';

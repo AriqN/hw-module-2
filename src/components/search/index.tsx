@@ -4,7 +4,7 @@ import Playlist from "../playlist";
 import Song from "../song";
 import { useSelector } from "react-redux";
 import { selectorProps } from "../../service/redux/store";
-import { type } from "os";
+
 
 export interface TrackType {
   album: Album;
@@ -77,9 +77,6 @@ export interface ExternalIDS {
 
 
 const Music:FC = () =>{
-
-  
-
   const [tracks,setTracks] = useState<TrackType[]>([]);
   const [keyword, setKeyword] = useState<string | null>(null);
   const [selectedTracks,setSelectedTracks] = useState<string[]>([]);
@@ -110,8 +107,10 @@ const Music:FC = () =>{
 
   useEffect(() => {
     handleSearch();
+    // eslint-disable-next-line
   }, []);
 
+  
   return(
     <>
      <div className='container'>
@@ -119,9 +118,10 @@ const Music:FC = () =>{
         
               <form style={{ marginBottom: "20px" }} onSubmit={handleSubmit} className="form-search">
                 <input onChange={(e) => setKeyword(e.target.value)} type="text" placeholder="Find Your Favorite Song Here!" className="input-search" />
-                <button className="search-btn" type="submit"><i className= "fas fa-search"></i></button>
+                <button className="search-btn" type="submit"><i className= "fas fa-search"></i> </button>               
               </form>
               <div className="cards">
+                
                 {
                   tracks.length>0 &&
                   tracks.map((data)=>(

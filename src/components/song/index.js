@@ -1,4 +1,4 @@
-import React from "react";
+import { Button } from "@mui/material";
 const Song = ({data, selectedTracks, setSelectedTracks}) => {
     
 
@@ -13,8 +13,8 @@ const Song = ({data, selectedTracks, setSelectedTracks}) => {
         <>
             
                 <div className='card' >                          
-                    <img src= {data.album.images[1].url} alt="music"/>
-                        <div className="text">
+                    <img src= {data.album.images[1].url} alt={data.name}/>
+                        <div className="text-tracks">
                             <div className="song-title">
                                 {data.name}
                             </div>
@@ -24,10 +24,10 @@ const Song = ({data, selectedTracks, setSelectedTracks}) => {
                             <div className="album">
                                 {data.album.name}
                             </div>
-                        </div> 
-                        <button className="add select-btn"  onClick={handleTracksSelector}>
-                            {selectedTracks.includes(data.uri) ? "Desselect" : "Select"}             
-                        </button>
+                        </div>                         
+                        <Button variant="contained" color="secondary" onClick={handleTracksSelector}  sx={{fontWeight:700, paddingX:3}} >
+                          {selectedTracks.includes(data.uri) ? "Deselect" : "Select"}
+                        </Button>
                 </div>
               
                  </>
